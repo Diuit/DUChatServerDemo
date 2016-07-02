@@ -1,0 +1,7 @@
+{
+  "name": "DUChatServer Demo",
+  "description": "Demo of integrating your backend with Diuit API",
+  "repository": "https://github.com/Diuit/DUChatServerDemo",
+  "logo": "http://api.diuit.com/images/logo.png",
+  "keywords": ["message", "diuit", "productivity"]
+}
