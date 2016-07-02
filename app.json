@@ -3,5 +3,27 @@
   "description": "Demo of integrating your backend with Diuit API",
   "repository": "https://github.com/Diuit/DUChatServerDemo",
   "logo": "http://api.diuit.com/images/logo.png",
-  "keywords": ["message", "diuit", "productivity"]
+  "keywords": ["message", "diuit", "productivity"],
+  "env": {
+    "APP_ID": {
+      "description": "Your Diuit APP ID. You can get it from Diuit API dashboard (https://developer.diuit.com/dashboard)",
+      "required": true
+    },
+    "APP_KEY": {
+      "description": "Your Diuit APP KEY. You can get it from Diuit API dashboard (https://developer.diuit.com/dashboard)",
+      "required": true
+    },
+    "KEY_ID": {
+      "description": "Your Diuit KEY ID. You can get it from Diuit API dashboard (https://developer.diuit.com/dashboard)",
+      "required": true
+    },
+    "PRIVATE_KEY": {
+      "description": "The private key downloaded when you clicked `Generate Key`. Open it and then copy&past here.",
+      "required": true
+    },
+    "PLATFORM": {
+      "description": "The platform string of the device. Must be one of the following:\"gcm\", \"ios_sandbox\", \"ios_production\".",
+      "required": false
+    }
+  }
 }
