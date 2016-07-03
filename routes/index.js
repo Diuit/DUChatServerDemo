@@ -1,8 +1,5 @@
 var express   = require('express');
 var hash      = require('password-hash');
-var mongoose  = require('mongoose');
-var User      = mongoose.model('User');
-mongoose.Promise = require('bluebird');
 var diuitauth = require('diuit-auth');
 var config    = require('../config');
 var router    = express.Router();
@@ -23,36 +20,18 @@ router.post('/signup', function(req, res, next) {
   client.userSerial = "user." + spec.username;
   client.deviceSerial = client.userSerial +  ".device.0";
 
-  var promise = User.findOne({username: spec.username}).exec();
-  promise.then(function(user) {
-    if (user != null) {
-      throw new Error("user existed");
-    }
-
-    return diuitauth.getSessionToken(client);
-  }).then(function(resp){
-    console.log("get session from Diuit API server:" + resp.session);
-    // hash password
-    spec.password = hash.generate(spec.password);
-    spec.session = resp.session;
-    var sessionExpiredDate = new Date();
-    sessionExpiredDate.setDate(sessionExpiredDate.getDate() + 7);
-
-    return new User({
-        "username": spec.username,
-        "password": spec.password,
-        "session_token": spec.session,
-        "session_expiredAt": sessionExpiredDate
-    }).save();
-  }).then(function(){
-    res.status(200).json({"session":spec.session});
+  diuitauth.getSessionToken(client)
+  .then(function(resp){
+    console.log("Get session from Diuit API server:" + resp.session);
+    res.status(200).json({"session":resp.session});
   }).catch(function(error){
-    console.log("error:" + error);
-    res.status(499).json({"error": error});
+    console.log(error);
+    res.status(499).json({"error":error});
   });
 });
 
-/* user sign in */
+/* No user sign in for not using database */
+/*
 router.post('/signin', function(req, res, next) {
   const spec = req.body;
 
@@ -97,5 +76,5 @@ router.post('/signin', function(req, res, next) {
   })
 
 });
-
+*/
 module.exports = router;
