@@ -4,7 +4,6 @@
   "repository": "https://github.com/Diuit/DUChatServerDemo",
   "logo": "http://api.diuit.com/images/logo.png",
   "keywords": ["message", "diuit", "productivity"],
-  "addons": ["mongolab"],
   "env": {
     "APP_ID": {
       "description": "Your Diuit APP ID. You can get it from Diuit API dashboard (https://developer.diuit.com/dashboard)",
