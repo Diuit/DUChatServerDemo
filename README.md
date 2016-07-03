@@ -78,9 +78,9 @@ After deploying the app, you have two RESTFul APIs ( one for database-free insta
 If you use database-free installation, this API does not exist.
 
 1.  After you register your account, the very next time when you want to use the service, you have to sign in.
-2. It's also easy to implement it with Postman:
+2.  It's also easy to implement it with Postman:
    ![signin](http://api.diuit.com/images/signin_postman_example.png)
-3. You will also receive a session token in response. If your token is expired when sign in, the backend will refresh it for you.
+3.  You will also receive a session token in response. If your token is expired when sign in, the backend will refresh it for you.
 
 
 
@@ -91,3 +91,25 @@ That's it!! Now you already complete the authentication procedure with your back
 1. You should sign up for tow accounts to communicate with each other.
 2. If you'd like to try Diuit API on mobile devices, you should [install our framework](http://api.diuit.com/doc/en/guideline.html#getting-started).
 3. With the session tokens, you can [try our API](http://api.diuit.com/doc/en/guideline.html#real-time-communication) now!
+
+
+
+___
+
+## Behind the API
+
+This seciont will briefly explain whe the code does when you call these two APIs:
+
+### Sign Up
+
+1. Check the database if the username you post exists, return an error if it does.
+2. Use your username as `userSerial` (in format `user.USERNAME`) and `deviceSerial` (in format `user.USERNAME.device.0`), which are the required fields for Diuit session token.
+3. Request for session token with a Node.js package `diuit-auth` and return the result in response.
+4. Save user data and session in the database (expired date is set to seven days later). If you are using database-free installation, nothing will be saved.
+
+
+
+### Sign in
+
+1. Verify the credential of signed in user.
+2. Return session token if it's still valid; Refresh the token and return otherwise.
