@@ -18,7 +18,7 @@
 
 ## 在 Heroku 上自動安裝與一鍵部屬
 
-1. 若安裝完整的功能，Heroku 將會需要你填入信用卡資訊，因為 MongoDB的[擴充功能](https://elements.heroku.com/addons/mongolab) (可輸入信用卡資訊但選擇免費方案)  
+1. 若安裝完整的功能，Heroku 將會需要你填入信用卡資訊，因為 MongoDB的[擴充功能](https://elements.heroku.com/addons/mongolab) (雖然是用免費方案但仍需輸入信用卡號)  
     [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 2. 如果你不想要輸入信用卡資訊，我們也提供了無需使用資料庫即可安裝的一鍵部屬。但請注意如此一來你將只能註冊而無法登入，資料將不會被存在資料庫中，每一次要得到 session token 都須註冊一次（但如果只是想做快速測試，已足夠）。
