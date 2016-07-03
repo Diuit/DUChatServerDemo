@@ -15,12 +15,16 @@ This repo demonstrates how to integrate your backend with Diuit API.
 
 ## Automated Installation
 
-1. Installation of full features will ask for your credit card information, because of the MongoDB [add-on](https://elements.heroku.com/addons/mongolab) (You still have to register credit card inofrmation for free plan.) 
+1. Installation of full features will ask for your credit card information, because of the MongoDB [add-on](https://elements.heroku.com/addons/mongolab) (You still have to register credit card inofrmation for free plan.)  
     [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 2. If you hate to fill in your credit card number, use the following button for database-free installation. Noted that this also means you can only do "signup" and nothing will be saved in the backend.
 
-   ![Deploy](https://www.herokucdn.com/deploy/button.svg)
+   [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Diuit/DUChatServerDemo/tree/noDatabase)
+
+
+
+Remember your heroku app address. ex: `https://APP_ADDRESS.herokuapp.com/`
 
 ### Configurations
 
@@ -46,12 +50,44 @@ For enviroment variables don't accept multiple-line value, you have to do some t
 
 1. Open the downloaded file with any text editor, and copy all the content.
 2. Use the [helper](http://www.gillmeister-software.com/online-tools/text/remove-line-breaks.aspx) to replace the line breaks with `\n`
-   ![steps](http://www.diuit.com/download/replace_steps.png)
+   ![steps](http://api.diuit.com/images/replace_steps.png)
 3. Paste the result in the config variables field.
-
 
 
 ---
 
 
 
+## Retrieve session token
+
+After deploying the app, you have two RESTFul APIs ( one for database-free installation):
+
+### Sign Up
+
+1. Imagine that you have a backend, and this is the first time to use it. First step is to sign up a new account. You can do it with [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
+   ![signup](http://api.diuit.com/images/signup_postman_example.png)
+
+2. You will get a session token in response. Noted that the expired date of the session token is sever days later.
+
+3. Signup with another **different** username to get another session token.
+
+   ​
+
+### Sign In
+
+If you use database-free installation, this API does not exist.
+
+1.  After you register your account, the very next time when you want to use the service, you have to sign in.
+2. It's also easy to implement it with Postman:
+   ![signin](http://api.diuit.com/images/signin_postman_example.png)
+3. You will also receive a session token in response. If your token is expired when sign in, the backend will refresh it for you.
+
+
+
+That's it!! Now you already complete the authentication procedure with your backend and Diuit API server.
+
+## Where to Go From Here?
+
+1. You should sign up for tow accounts to communicate with each other.
+2. If you'd like to try Diuit API on mobile devices, you should [install our framework](http://api.diuit.com/doc/en/guideline.html#getting-started).
+3. With the session tokens, you can [try our API](http://api.diuit.com/doc/en/guideline.html#real-time-communication) now!
