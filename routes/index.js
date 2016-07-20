@@ -18,6 +18,14 @@ var client = {
 
 /* user sign up */
 router.post('/signup', function(req, res, next) {
+
+  req.checkBody('username', 'Invalid username').notEmpty()
+  req.checkBody('password', 'Invalid password').notEmpty()
+  if (err = req.validationErrors()) {
+    res.status(400).send(err)
+    return;
+  }
+
   const spec = req.body;
 
   client.userSerial = "user." + spec.username;
