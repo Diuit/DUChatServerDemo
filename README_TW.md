@@ -52,7 +52,7 @@
 3. 將轉換過後的結果全部複製，並貼回 Heroku 設定環境變數頁面的 PRIVATE_KEY 欄位中。
 
 
-
+**【請注意】** 複製貼上 Private Key 時，需包含頭尾的 **「 -----BEGIN RSA PRIVATE KEY -----  」**及 **「-----END RSA PRIVATE KEY -----」**否則再下一步用 Postman 取得 session token 時會出現錯誤。
 
 ---
 

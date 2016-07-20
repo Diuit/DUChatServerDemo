@@ -58,7 +58,7 @@ The configuration variables are set with environment variables and/or using `.en
 3. Paste the result back into the config variables field.
 
 
-
+**【Note】**Private Key must include  **“-----BEGIN RSA PRIVATE KEY ----- “**  and  **“-----END RSA PRIVATE KEY -----“** . Otherwise, It will show an error message when using Postman to get session token in the next step.
 
 
 
@@ -125,7 +125,6 @@ In this session we will briefly explain what the code does when you call these t
 
 1. Verify the credential of a signed in user.
 2. Return session token if it's still valid; Refresh the token and return otherwise.
-
 
 
 ---
