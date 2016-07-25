@@ -1,17 +1,20 @@
 //mongoose setup
-require('./db');
+// require('./db');
 
-var express = require('express');
-var expressValidator = require('express-validator');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express = require('express')
+  , path = require('path')
+  , favicon = require('serve-favicon')
+  , logger = require('morgan')
+  , cookieParser = require('cookie-parser')
+  , bodyParser = require('body-parser')
+  , expressValidator = require('express-validator')
+  , mongoose  = require('mongoose')
+  , config = require('./config')
 
 var routes = require('./routes/index');
-
 var app = express();
+
+mongoose.connect(config.dburi);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
