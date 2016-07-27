@@ -61,7 +61,7 @@ function generateMessageUIElement(message) {
   if(message.sender.meta.name == "System") return [];
 
   var outGoing = (message.sender.serial == currentUser.serial)? true : false;
-  var displayName = (outGoing) ? 'Diuit Webber' : (message.sender.meta.name) ? (message.sender.meta.name) : (message.sender.serial);
+  var displayName = (outGoing) ? currentUser.meta.name : (message.sender.meta.name) ? (message.sender.meta.name) : (message.sender.serial);
 
   var messageElement;
   if (outGoing) { // sent by me
