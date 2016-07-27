@@ -66,16 +66,21 @@ The configuration variables are set with environment variables and/or using `.en
 
 ## Retrieve session token
 
-After deploying the app, you have two RESTFul APIs (one for database-free installation):
+After deploying the app on Heroku, visiting `https://APP_NAME.herokuapp.com/getSessions.html`. You will see an utility page to help you retrieve session tokens.
+
+![getSessions](http://i.imgur.com/XKtE0JA.png)
 
 ### Sign Up
 
-1. Just like you have a backend server, and this is the first time you use it. The first step is to sign up a new account. You can do it with [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
-   ![signup](http://api.diuit.com/images/signup_postman_example.png)
+1. You have a backend server, and this is the first time you use it. The first step is to sign up a new account. Here we use an email account as the username, so please input a valid emial address and random password you like.
 
-2. You will get a session token in response. Note that the expired date of the session token is seven days later.
+2. Click "SIGN UP", and you will get a session token if everything works fine.
 
-3. If you'd like to send messages between two devices, you have to sign up a **different** username to get another session token.
+   ![session](http://i.imgur.com/IbmGzhm.png)
+
+3. Click "COPY TO CLIPBOARD" can copy the returned session token to your clipboard.
+
+4. If you'd like to send messages between two devices, you have to sign up a **different** username(email) to get another session token.
 
    ​
 
@@ -84,10 +89,11 @@ After deploying the app, you have two RESTFul APIs (one for database-free instal
 Note that this API isn't for the database-free installation case.
 
 1.  After you register your account, the next time when you want to use the service, you have to sign in.
-2.  It's also easy to implement with Postman:
-   ![signin](http://api.diuit.com/images/signin_postman_example.png)
-3.  You will also receive a session token in response. If your token is expired when signing in, the backend will refresh it for you.
+2.  Just like what you do in "Sign Up", fill in your email and password and click "SIGN IN" button.
+3.  You will get a session token too, if everything works fine.
 
+
+![signin](http://i.imgur.com/W9R6Bh8.png)
 
 
 

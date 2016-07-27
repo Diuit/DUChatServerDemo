@@ -9,8 +9,14 @@ var router    = express.Router();
 
 var ROUTES = {
   SIGNUP: '/signup'
-  , SIGNIN: '/signin'
+  , SIGNIN: '/signin',
+  GET_SESSION: '/getSession',
+  WEB_CHAT: '/webchat'
 }
+
+router.get(ROUTES.GET_SESSION, function(req, res, next) {
+  
+});
 
 router.post(ROUTES.SIGNUP, function(req, res, next) {
   req.checkBody('username', 'Invalid username').notEmpty();

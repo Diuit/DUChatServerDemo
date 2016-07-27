@@ -32,7 +32,7 @@ User.statics.signup = function (username, password) {
       if (user) {
         reject("user existed");
       } else {
-        client.userSerial = "user." + username;
+        client.userSerial =  username;
         client.deviceSerial = client.userSerial +  ".device.0";
         return diuitauth.getSessionToken(client)
       }
@@ -69,10 +69,10 @@ User.statics.signin = function (username, password) {
         resolve(user)
       } else {
         userObj = user
-        client.userSerial = "user." + username;
+        client.userSerial = username;
         client.deviceSerial = client.userSerial +  ".device.0";
         return diuitauth.getSessionToken(client)
-      }      
+      }
     }).then(function (resp) {
       console.log(resp)
       let sessionExpiredDate = new Date();
