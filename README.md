@@ -121,7 +121,7 @@ In this session we will briefly explain what the code does when you call these t
 ### Sign Up
 
 1. Check the database to see if the username you posted already exists. It will return an error if the username already exists.
-2. Use your username as `userSerial` (in the format of `user.USERNAME`) and `deviceSerial` (in the format of `user.USERNAME.device.0`), which are the two required fields for Diuit session token.
+2. Use your username as `userSerial` (in the format of `USERNAME`) and `deviceSerial` (in the format of `USERNAME.device.0`), which are the two required fields for Diuit session token.
 3. Request a session token with a Node.js package `diuit-auth` and return the result in response.
 4. Save user data and session in the database (by default, expired date is seven days later). If you are using database-free installation, nothing will be saved.
 
